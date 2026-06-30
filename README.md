@@ -4,6 +4,9 @@
 
 The Candidate Data Transformer is a full-stack web application that consolidates candidate information from multiple input sources into a single unified candidate profile. The system extracts candidate data from CSV files, ATS JSON files, and PDF resumes, normalizes the data, removes duplicate records, merges candidate information, calculates an overall confidence score, and generates the final candidate profile using either a default or custom output schema.
 
+## Demo
+
+- **Live Demo:** https://candidate-data-transfer.vercel.app/
 
 ## Features
 
@@ -19,25 +22,29 @@ The Candidate Data Transformer is a full-stack web application that consolidates
 - Generate Custom Output Schema
 - Download final profile as JSON and CSV
 
-
 ## Technology Stack
 
-- **Frontend**: React.js, Tailwind CSS, Vite
-- **Backend**: Python, Flask
-- **PDF Parsing**: PyMuPDF
-- **DOCX Parsing**: python-docx
-- **Regular Expressions**: for resume field extraction
+### Frontend
 
+- React.js
+- Tailwind CSS
+- Vite
+
+### Backend
+
+- Python
+- Flask
+
+### Parsing Libraries
+
+- PyMuPDF
+- python-docx
+- Regular Expressions (Regex)
 
 ## Project Structure
 
-project/
-│
-├── input/
-│   ├── candidates.csv
-│   ├── ats.json
-│   ├── config.json
-│   └── Deepika_Resume.pdf
+```text
+Candidate_Data_Transformer/
 │
 ├── backend/
 │   ├── app.py
@@ -49,33 +56,51 @@ project/
 │   ├── services/
 │   └── utils/
 │
-└── candidate-transformer/   ← React Frontend
-    ├── src/
-    └── package.json
-
+├── candidate-transformer/
+│   ├── public/
+│   ├── src/
+│   ├── package.json
+│   └── vite.config.js
+│
+├── input/
+│   ├── candidates.csv
+│   ├── ats.json
+│   ├── config.json
+│   └── resumes/
+│       ├── Deepika_Resume.pdf
+│       └── Rahul_Resume.pdf
+│
+├── output/
+│   ├── final_candidate.json
+│   └── final_candidate.csv
+│
+├── Technical_Design.pdf
+└── README.md
+```
 
 ## Processing Pipeline
 
+```text
 Input Sources
-     ↓
+      ↓
 Data Extraction
-     ↓
+      ↓
 Candidate Matching
-     ↓
+      ↓
 Normalization
-     ↓
+      ↓
 Deduplication
-     ↓
+      ↓
 Merge Records
-     ↓
+      ↓
 Conflict Resolution
-     ↓
+      ↓
 Overall Confidence Score
-     ↓
+      ↓
 Output Schema Selection
-     ↓
-Generate Final Profile
-
+      ↓
+Generate Final Candidate Profile
+```
 
 ## Source Priority
 
@@ -83,20 +108,18 @@ Generate Final Profile
 2. ATS JSON
 3. CSV
 
-
 ## Candidate Matching Priority
 
 1. Email
 2. Phone
 3. Full Name
 
-
 ## Input Files
 
-The application accepts the following input sources:
+The application accepts:
 
-- CSV file
-- ATS JSON file
+- CSV File
+- ATS JSON File
 - PDF Resume
 - Config JSON (Optional)
 
@@ -121,37 +144,46 @@ The application generates:
 
 ## How to Run
 
-1. Clone the repository.
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/Deepika4825/Candidate_Data_Transfer.git
 ```
 
-2. Install backend dependencies.
+### 2. Install Backend Dependencies
 
 ```bash
 cd backend
 pip install -r requirements.txt
 ```
 
-3. Run the Flask backend.
+### 3. Run the Flask Backend
 
 ```bash
 python app.py
 ```
 
-4. Install frontend dependencies.
+### 4. Install Frontend Dependencies
 
 ```bash
 cd candidate-transformer
 npm install
 ```
 
-5. Run the React frontend.
+### 5. Run the React Frontend
 
 ```bash
 npm run dev
 ```
 
+## Future Enhancements
 
+- GitHub API Integration
+- LinkedIn API Integration
+- OCR Support for Scanned Resumes
+- AI/LLM-Based Resume Understanding
+- Database Integration
 
+## Author
+
+**Deepika R**
