@@ -184,6 +184,3 @@ npm run dev
 - AI/LLM-Based Resume Understanding
 - Database Integration
 
-## Author
-
-**Deepika R**
