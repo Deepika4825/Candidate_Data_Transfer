@@ -116,7 +116,7 @@ export default function ResultsPage({ sources, onBack }) {
     let cancelled = false;
     async function fetchData() {
       try {
-        const res = await fetch('http://localhost:5000/process', {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/process`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ sources }),
@@ -236,7 +236,7 @@ export default function ResultsPage({ sources, onBack }) {
     setGenErrors(p => ({ ...p, [idx]: '' }));
 
     try {
-      const res = await fetch('http://localhost:5000/generate-profile', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/generate-profile`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ candidate, schema_type: schema, selected_fields: finalFields }),
