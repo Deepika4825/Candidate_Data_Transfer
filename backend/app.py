@@ -10,17 +10,10 @@ def create_app():
     app = Flask(__name__)
     app.config["MAX_CONTENT_LENGTH"] = 32 * 1024 * 1024
 
-    CORS(app, resources={r"/*": {"origins": [
-        "http://localhost:5173", "http://127.0.0.1:5173",
-        "http://localhost:5174", "http://127.0.0.1:5174",
-    ]}})
+    CORS(app, resources={r"/*": {"origins": "*"}})
 
     app.register_blueprint(process_bp)
     app.register_blueprint(schema_bp)
-
-    # Also register with /api prefix for Vercel deployment compatibility
-    app.register_blueprint(process_bp, url_prefix="/api")
-    app.register_blueprint(schema_bp, url_prefix="/api")
 
     return app
 
