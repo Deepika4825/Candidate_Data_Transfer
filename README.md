@@ -4,7 +4,6 @@
 
 The Candidate Data Transformer is a full-stack web application that consolidates candidate information from multiple input sources into a single unified candidate profile. The system extracts candidate data from CSV files, ATS JSON files, and PDF resumes, normalizes the data, removes duplicate records, merges candidate information, calculates an overall confidence score, and generates the final candidate profile using either a default or custom output schema.
 
----
 
 ## Features
 
@@ -20,7 +19,6 @@ The Candidate Data Transformer is a full-stack web application that consolidates
 - Generate Custom Output Schema
 - Download final profile as JSON and CSV
 
----
 
 ## Technology Stack
 
@@ -30,11 +28,9 @@ The Candidate Data Transformer is a full-stack web application that consolidates
 - **DOCX Parsing**: python-docx
 - **Regular Expressions**: for resume field extraction
 
----
 
 ## Project Structure
 
-```
 project/
 │
 ├── input/
@@ -56,13 +52,10 @@ project/
 └── candidate-transformer/   ← React Frontend
     ├── src/
     └── package.json
-```
 
----
 
 ## Processing Pipeline
 
-```
 Input Sources
      ↓
 Data Extraction
@@ -82,9 +75,7 @@ Overall Confidence Score
 Output Schema Selection
      ↓
 Generate Final Profile
-```
 
----
 
 ## Source Priority
 
@@ -92,7 +83,6 @@ Generate Final Profile
 2. ATS JSON
 3. CSV
 
----
 
 ## Candidate Matching Priority
 
@@ -100,7 +90,6 @@ Generate Final Profile
 2. Phone
 3. Full Name
 
----
 
 ## Input Files
 
@@ -110,8 +99,6 @@ The application accepts the following input sources:
 - ATS JSON file
 - PDF Resume
 - Config JSON (Optional)
-
----
 
 ## Output
 
@@ -124,8 +111,6 @@ The application generates:
 - Downloadable JSON
 - Downloadable CSV
 
----
-
 ## Edge Cases Handled
 
 - No output schema selected
@@ -133,8 +118,6 @@ The application generates:
 - Invalid fields in custom schema
 - Duplicate fields in custom schema
 - Missing values in selected fields
-
----
 
 ## How to Run
 
@@ -170,10 +153,5 @@ npm install
 npm run dev
 ```
 
-6. Open the browser at `http://localhost:5173` and process candidate data.
 
----
 
-## Author
-
-Deepika R
