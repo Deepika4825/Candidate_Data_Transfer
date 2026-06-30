@@ -1,75 +1,179 @@
 # Candidate Data Transformer
 
-A full-stack web application that extracts, normalizes, deduplicates, merges, and scores candidate profiles from multiple data sources into a single unified output.
+## Overview
 
-## Tech Stack
+The Candidate Data Transformer is a full-stack web application that consolidates candidate information from multiple input sources into a single unified candidate profile. The system extracts candidate data from CSV files, ATS JSON files, and PDF resumes, normalizes the data, removes duplicate records, merges candidate information, calculates an overall confidence score, and generates the final candidate profile using either a default or custom output schema.
 
-- **Frontend**: React 19 + Tailwind CSS v4 + Vite
-- **Backend**: Python Flask
+---
 
-## Pipeline
+## Features
 
-```
-Input Sources
-    ↓ Parsing & Extraction
-    ↓ Candidate Matching (email → phone → name)
-    ↓ Normalization
-    ↓ Deduplication
-    ↓ Merge
-    ↓ Conflict Resolution
-    ↓ Confidence Scoring
-    ↓ Output Schema Generation
-    ↓ Export (JSON / CSV)
-```
+- Import candidate data from CSV files
+- Parse ATS JSON files
+- Extract information from PDF resumes
+- Normalize candidate information
+- Match candidates using Email, Phone, and Name
+- Remove duplicate candidate records
+- Merge data using source priority
+- Calculate Overall Confidence Score
+- Generate Default Output Schema
+- Generate Custom Output Schema
+- Download final profile as JSON and CSV
 
-## Input Sources
+---
 
-- Recruiter CSV (`candidates.csv`)
-- ATS JSON (`ats.json`)
-- Resume PDF/DOCX (`Deepika_Resume.pdf`)
-- Runtime Config JSON (`config.json`)
+## Technology Stack
+
+- **Frontend**: React.js, Tailwind CSS, Vite
+- **Backend**: Python, Flask
+- **PDF Parsing**: PyMuPDF
+- **DOCX Parsing**: python-docx
+- **Regular Expressions**: for resume field extraction
+
+---
 
 ## Project Structure
 
 ```
+project/
+│
+├── input/
+│   ├── candidates.csv
+│   ├── ats.json
+│   ├── config.json
+│   └── Deepika_Resume.pdf
+│
 ├── backend/
 │   ├── app.py
 │   ├── routes.py
 │   ├── routes_schema.py
+│   ├── requirements.txt
 │   ├── models/
 │   ├── parsers/
 │   ├── services/
 │   └── utils/
-├── candidate-transformer/   ← React frontend
-├── input/                   ← Sample input files
-└── README.md
+│
+└── candidate-transformer/   ← React Frontend
+    ├── src/
+    └── package.json
 ```
 
-## Running the Application
+---
 
-**Backend (Flask):**
+## Processing Pipeline
+
+```
+Input Sources
+     ↓
+Data Extraction
+     ↓
+Candidate Matching
+     ↓
+Normalization
+     ↓
+Deduplication
+     ↓
+Merge Records
+     ↓
+Conflict Resolution
+     ↓
+Overall Confidence Score
+     ↓
+Output Schema Selection
+     ↓
+Generate Final Profile
+```
+
+---
+
+## Source Priority
+
+1. Resume
+2. ATS JSON
+3. CSV
+
+---
+
+## Candidate Matching Priority
+
+1. Email
+2. Phone
+3. Full Name
+
+---
+
+## Input Files
+
+The application accepts the following input sources:
+
+- CSV file
+- ATS JSON file
+- PDF Resume
+- Config JSON (Optional)
+
+---
+
+## Output
+
+The application generates:
+
+- Unified Candidate Profile
+- Overall Confidence Score
+- Default Output Schema
+- Custom Output Schema
+- Downloadable JSON
+- Downloadable CSV
+
+---
+
+## Edge Cases Handled
+
+- No output schema selected
+- No fields selected in custom schema
+- Invalid fields in custom schema
+- Duplicate fields in custom schema
+- Missing values in selected fields
+
+---
+
+## How to Run
+
+1. Clone the repository.
+
+```bash
+git clone https://github.com/Deepika4825/Candidate_Data_Transfer.git
+```
+
+2. Install backend dependencies.
+
 ```bash
 cd backend
 pip install -r requirements.txt
+```
+
+3. Run the Flask backend.
+
+```bash
 python app.py
 ```
 
-**Frontend (React):**
+4. Install frontend dependencies.
+
 ```bash
 cd candidate-transformer
 npm install
+```
+
+5. Run the React frontend.
+
+```bash
 npm run dev
 ```
 
-Open **http://localhost:5173** in your browser.
+6. Open the browser at `http://localhost:5173` and process candidate data.
 
-## Confidence Score Formula
+---
 
-| Component | Points |
-|---|---|
-| Resume present | +40 |
-| ATS JSON present | +30 |
-| CSV present | +20 |
-| Fields confirmed by 2+ sources (×3 each) | up to +12 |
-| Profile completeness (×2 each field) | up to +14 |
-| Conflict penalty (×4 each) | deducted |
+## Author
+
+Deepika R
