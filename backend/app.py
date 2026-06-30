@@ -18,6 +18,10 @@ def create_app():
     app.register_blueprint(process_bp)
     app.register_blueprint(schema_bp)
 
+    # Also register with /api prefix for Vercel deployment compatibility
+    app.register_blueprint(process_bp, url_prefix="/api")
+    app.register_blueprint(schema_bp, url_prefix="/api")
+
     return app
 
 
