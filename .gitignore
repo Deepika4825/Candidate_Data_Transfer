@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.env
+venv/
+env/
+
+# Flask uploads (runtime generated files)
+backend/uploads/
+
+# Node
+candidate-transformer/node_modules/
+candidate-transformer/dist/
+candidate-transformer/.vite/
+
+# Input PDFs (generated, not source code)
+input/Rahul_Resume.pdf
+
+# OS
+.DS_Store
+Thumbs.db
+*.log

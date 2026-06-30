@@ -1,0 +1,30 @@
+{
+  "candidates": [
+    {
+      "candidate_id": "C001",
+      "full_name": "Deepika Rajmanoharan",
+      "email": "deepikarajmanoharan@gmail.com",
+      "phone": "9876543210",
+      "current_company": "Infosys",
+      "experience_years": 3,
+      "skills": ["Python", "Machine Learning", "Data Analysis", "SQL", "Pandas"],
+      "education": "B.Tech in Information Technology, Anna University, 2021",
+      "current_role": "Software Engineer",
+      "notice_period": "60 days",
+      "source": "LinkedIn"
+    },
+    {
+      "candidate_id": "C002",
+      "full_name": "Rahul K",
+      "email": "rahul@gmail.com",
+      "phone": "9012345678",
+      "current_company": "TCS",
+      "experience_years": 2,
+      "skills": ["Java", "Spring Boot", "REST APIs", "SQL", "Docker"],
+      "education": "B.Tech in Computer Science, JNTUH, 2023",
+      "current_role": "Software Engineer",
+      "notice_period": "30 days",
+      "source": "Naukri"
+    }
+  ]
+}

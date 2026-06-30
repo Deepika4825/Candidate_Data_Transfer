@@ -1,0 +1,8 @@
+{
+  "schema_type": "custom",
+  "output_schema": {
+    "Candidate ID": "candidate_id",
+    "Current Company": "current_company",
+    "Experience": "experience"
+  }
+}
